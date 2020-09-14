@@ -84,3 +84,23 @@ def extract_silences_audio_ml(file_name):
             silent.append((xmin, xmax))
 
     return silent
+
+def video_cut_at(filename, cuts):
+    """Cuts video based on (start,end) tuples
+
+    Args:
+        filename (string): the name of the file from which parts are to be cut
+        cuts (list): list of (start,end) tuples, each tuple represents the parts to be cut, both start and end are float values
+
+    Returns:
+        moviepy.VideoClip
+    """
+    video_to_cut = VideoFileClip(filename)
+    final_video = video_to_cut.subclip(0, cuts[0][0])
+
+    for i in range(0, len(cuts)):
+        if not i == (len(cuts) - 1):
+            a = video_to_cut.subclip(
+                cuts[i][1], cuts[i + 1][0])
+            final_video = concatenate_videoclips([final_video, a])
+    return final_video
