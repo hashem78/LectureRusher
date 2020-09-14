@@ -4,10 +4,15 @@ An app that will remove filler words, silences and speed up videos for an online
 ### I will be tracking my progress using this readme file.
 
 # 9:00am
+
 Cloned the github repo and Initialized the environment.
+
 # 10:42 am
+
 fumbling around aws lambda is taking precious time, it isn't as intiuitive as it was made to be.
+
 # 4:00pm
+
 Here's what I did during this time:
 
 ######    1. Experimented with AWS lambda, even more... but it turns out I need more.
@@ -19,3 +24,13 @@ Here's what I did during this time:
 ######    4. Installed apache2, python and flask and setup a basic website to upload files to the server from anywhere.
 
 ######    5. Began the actual work of getting the silences detected and cut.
+
+# 7:15pm
+
+I think I've mainly constructed the basic functionality of the app, for now the script uses the prebuilt model through the praat file to extract the silent parts (including filler words).
+
+###### Drawbacks I have uncovered during my testing:
+
+######      1. Sometimes filler words slip by due to misaligned pitches but this is rare and could be related to the specific audio file.
+######      2. If a file is big(>=5-6 mb) the model takes a bunch of time to churn through it, this could be solved with a machine with better oomph than my laptop and the feeble free tier aws ec2 instance I am going to run this script >_>
+
