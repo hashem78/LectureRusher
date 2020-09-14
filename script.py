@@ -1,16 +1,9 @@
 from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips, concatenate_audioclips
 import parselmouth
 from parselmouth.praat import call, run_file
-import glob
-import pandas as pd
-import numpy as np
-import scipy
-from scipy.stats import binom
-from scipy.stats import ks_2samp
-from scipy.stats import ttest_ind
+
 import os
 import subprocess
-
 def audio_cut_at(filename, cuts):
     """Cuts audio based on (start,end) tuples
 
@@ -112,4 +105,3 @@ def video_cut_at(filename, cuts):
                 cuts[i][1], cuts[i + 1][0])
             final_video = concatenate_videoclips([final_video, a])
     return final_video
-
