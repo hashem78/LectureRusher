@@ -1,6 +1,13 @@
 from moviepy.editor import VideoFileClip, AudioFileClip, concatenate_videoclips, concatenate_audioclips
 import parselmouth
 from parselmouth.praat import call, run_file
+import glob
+import pandas as pd
+import numpy as np
+import scipy
+from scipy.stats import binom
+from scipy.stats import ks_2samp
+from scipy.stats import ttest_ind
 import os
 import subprocess
 
@@ -15,14 +22,14 @@ def audio_cut_at(filename, cuts):
         moviepy.VideoClip
     """
     audio_to_cut = AudioFileClip(filename)
-    final_audio = audio_to_cut.subclip(0, cuts[0][0])
-    for i in range(0, len(cuts)):
-        if not i == (len(cuts) - 1):
-            a = audio_to_cut.subclip(
-                cuts[i][1], cuts[i + 1][0])
-            final_audio = concatenate_audioclips([final_audio, a])
+    final_audio = audio_to_cut.subclip(cuts[0][0], cuts[0][1])
+    for i in range(1, len(cuts)):
+        a = audio_to_cut.subclip(
+            cuts[i][0], cuts[i][1])
+        final_audio = concatenate_audioclips([final_audio, a])
 
     return final_audio
+
 
 def extract_silences_audio_ml(file_name):
     """This function is much better than ffmpeg for finding silences in audio as it uses a Machine learnig model trained specifically for this purpose.
@@ -80,10 +87,11 @@ def extract_silences_audio_ml(file_name):
         # This extraneous piece of data paart generates helps to distinguish between silences and sounding parts of the audio, here we take the silent parts.
         text = intervalsn[i + 2].split(' ')[2].strip('"')
 
-        if text == "silent":
-            silent.append((xmin, xmax))
+        if text == "sounding":
+            silent.append((float(xmin), float(xmax)))
 
     return silent
+
 
 def video_cut_at(filename, cuts):
     """Cuts video based on (start,end) tuples
@@ -104,3 +112,4 @@ def video_cut_at(filename, cuts):
                 cuts[i][1], cuts[i + 1][0])
             final_video = concatenate_videoclips([final_video, a])
     return final_video
+
