@@ -31,6 +31,8 @@ class MainScreen extends StatelessWidget {
                   children: [
                     RusherTile(
                       text: "Upload",
+                      onTap: () =>
+                          Navigator.of(context).pushNamed("/uploadScreen"),
                       icon: Icon(
                         Icons.upload_file,
                         color: Colors.amber,
