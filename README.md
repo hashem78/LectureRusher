@@ -34,3 +34,20 @@ I think I've mainly constructed the basic functionality of the app, for now the 
 ######      1. Sometimes filler words slip by due to misaligned pitches but this is rare and could be related to the specific audio file.
 ######      2. If a file is big(>=5-6 mb) the model takes a bunch of time to churn through it, this could be solved with a machine with better oomph than my laptop and the feeble free tier aws ec2 instance I am going to run this script >_>
 
+----------------------------
+# Day2
+
+# 2:15pm
+
+Woot woot. The Flutter app is taking shape, just finished the recording functionality.
+
+To use the recording functionality here is what you can do:
+######      Tap the Record Button once to start recording.
+######      Double tap the record button to pause.
+######      Long press the record button to stop and save the recording.
+
+Note: I still have to do the following for the recoding functionality:
+######      1. Provide a better way to let the user that there is a recording going on.
+######      2. Fix the naming of the recording (for now everything is saved as a file with same name to /sdcard/)
+
+# TIME TO WORK ON THE UPLOADING FUNCTIONALITY HOHOHO
