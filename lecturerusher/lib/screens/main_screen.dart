@@ -9,14 +9,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Lecture Rusher",
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w300),
-        ),
-        elevation: 0,
-        backgroundColor: kbackgroundColor,
-      ),
+      appBar: krusherAppBar,
       backgroundColor: kbackgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
