@@ -61,3 +61,6 @@ Note: I still have to do the following for the recoding functionality:
 ######      3. The files I am send are encoded as base64 strings and sent with the json response (I wanted something simple and quick, this should suffice for the hackathon)
 ######      4. Getting more worried about the lightsail server, it turns out I am not getting the aws credit in time to expand it's capabilities. Hope it works out tommorow.
 
+# 8:42pm
+
+###### Big ooooof wasted a bunch of time on getting the app to play a sound with flutter_sound but it is bugged beyond hell so I scraped the idea ehhhh.
