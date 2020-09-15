@@ -4,6 +4,7 @@ import 'package:lecturerusher/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:lecturerusher/models/recorder_model.dart';
+import 'package:file_picker/file_picker.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -24,8 +25,16 @@ class MainScreen extends StatelessWidget {
                   children: [
                     RusherTile(
                       text: "Upload",
-                      onTap: () =>
-                          Navigator.of(context).pushNamed("/uploadScreen"),
+                      onTap: () async {
+                        await Navigator.of(context).pushNamed("/uploadScreen");
+                        FilePicker.platform
+                            .clearTemporaryFiles()
+                            .then((result) {
+                          result
+                              ? print("Sucessfully cleared cache")
+                              : print("Error! cache not cleared!");
+                        });
+                      },
                       icon: Icon(
                         Icons.upload_file,
                         color: Colors.amber,

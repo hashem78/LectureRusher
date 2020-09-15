@@ -33,6 +33,8 @@ dependencies:
   flutter_sound: ^5.1.1
   path_provider: ^1.6.14
   permission_handler: ^5.0.1+1
+  file_picker: ^2.0.0
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:

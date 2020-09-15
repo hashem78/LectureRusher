@@ -4,6 +4,8 @@ from parselmouth.praat import call, run_file
 
 import os
 import subprocess
+
+
 def audio_cut_at(filename, cuts):
     """Cuts audio based on (start,end) tuples
 
@@ -20,7 +22,7 @@ def audio_cut_at(filename, cuts):
         a = audio_to_cut.subclip(
             cuts[i][0], cuts[i][1])
         final_audio = concatenate_audioclips([final_audio, a])
-
+    final_audio.write_audiofile('done_proc.wav')
     return final_audio
 
 
