@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:lecturerusher/models/recorder_model.dart';
 import 'package:lecturerusher/screens/main_screen.dart';
+import 'package:lecturerusher/models/rusher_ucheckbox_model.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -21,8 +22,15 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => RecorderModel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<RecorderModel>(
+          create: (context) => RecorderModel(),
+        ),
+        ChangeNotifierProvider<RusherUploadCheckBoxesModel>(
+          create: (context) => RusherUploadCheckBoxesModel(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
