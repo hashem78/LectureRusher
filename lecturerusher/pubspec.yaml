@@ -30,7 +30,9 @@ dependencies:
   cupertino_icons: ^0.1.3
   provider: ^4.3.2+2
   material_design_icons_flutter: 4.0.5555
-  flutter_audio_recorder: ^0.5.5
+  flutter_sound: ^5.1.1
+  path_provider: ^1.6.14
+  permission_handler: ^5.0.1+1
 
 dev_dependencies:
   flutter_test:

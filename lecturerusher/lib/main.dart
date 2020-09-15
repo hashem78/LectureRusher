@@ -1,9 +1,15 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:lecturerusher/constants.dart';
 import 'widgets/rusher_tile.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_sound/flutter_sound.dart';
+import 'package:permission_handler/permission_handler.dart';
 
+int s = 0;
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
@@ -63,6 +69,40 @@ class MainScreen extends StatelessWidget {
                     ),
                     RusherTile(
                       text: "Record",
+                      onTap: () async {
+                        // Request Microphone permission if needed
+                        PermissionStatus statusMic =
+                            await Permission.microphone.request();
+                        PermissionStatus statusStorage =
+                            await Permission.storage.request();
+                        if (statusMic != PermissionStatus.granted)
+                          throw RecordingPermissionException(
+                              "Microphone permission not granted");
+                        if (statusStorage != PermissionStatus.granted)
+                          throw RecordingPermissionException(
+                              "Microphone permission not granted");
+
+                        var myRecorder =
+                            await FlutterSoundRecorder().openAudioSession();
+                        String path =
+                            '/sdcard/${myRecorder.slotNo}-flutter_sound${ext[Codec.aacADTS.index]}';
+
+                        print(path);
+                        if (s % 2 == 0) {
+                          print("started");
+                          await myRecorder.startRecorder(
+                            toFile: path,
+                            codec: Codec.aacADTS,
+                          );
+                          s++;
+                        } else {
+                          print("ended");
+                          await myRecorder.stopRecorder();
+                          await myRecorder.closeAudioSession();
+                          myRecorder = null;
+                          s++;
+                        }
+                      },
                       icon: Icon(
                         Icons.circle,
                         color: Colors.red,

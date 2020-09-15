@@ -17,7 +17,7 @@ class RusherTile extends StatelessWidget {
             padding: EdgeInsets.all(10),
             icon: icon,
             iconSize: 140,
-            onPressed: () {},
+            onPressed: onTap,
             //iconSize: 150,
           ),
         ),
