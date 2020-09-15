@@ -51,3 +51,13 @@ Note: I still have to do the following for the recoding functionality:
 ######      2. Fix the naming of the recording (for now everything is saved as a file with same name to /sdcard/)
 
 # TIME TO WORK ON THE UPLOADING FUNCTIONALITY HOHOHO
+
+# 6:00pm
+
+# ANDDDDDDDDDDDDDDDDDDDDD it's done UPLOADDDDING IZZZZZ DONE BAAABY, there are a few caviats though:
+
+######      1. I am using flask to handel the requests to the aws lightSail server instance.
+######      2. There is literally not a signle bit of error handling XD it could all crash an die and burn but no errors will be generated (hakathon kids be like: u cnt hv wrkng app ECKS DEE ECKS DEE)
+######      3. The files I am send are encoded as base64 strings and sent with the json response (I wanted something simple and quick, this should suffice for the hackathon)
+######      4. Getting more worried about the lightsail server, it turns out I am not getting the aws credit in time to expand it's capabilities. Hope it works out tommorow.
+
