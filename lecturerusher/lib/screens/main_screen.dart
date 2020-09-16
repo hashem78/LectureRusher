@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lecturerusher/models/transcribe_model.dart';
 import 'package:lecturerusher/widgets/rusher_tile.dart';
 import 'package:lecturerusher/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -113,8 +114,13 @@ class MainScreen extends StatelessWidget {
                   ),
                   RusherTile(
                     text: "Live Transcribe",
-                    onTap: () =>
-                        Navigator.of(context).pushNamed('/transcribeScreen'),
+                    onTap: () {
+                      Provider.of<TranScribeModel>(context, listen: false)
+                          .updateText('Tap the button to start transcribing');
+                      Provider.of<TranScribeModel>(context, listen: false)
+                          .updateAnalysisText('');
+                      Navigator.of(context).pushNamed('/transcribeScreen');
+                    },
                     icon: Icon(
                       MdiIcons.textToSpeech,
                       color: Colors.blue,
