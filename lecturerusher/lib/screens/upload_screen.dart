@@ -45,7 +45,7 @@ class UploadScreen extends StatelessWidget {
                       String jsonEncoded = json.encode(jsonMap);
                       w.triggerIsFileSentToServer();
                       var response = await http.post(
-                        "http://22d9fcdb3de9.ngrok.io/uploadWAV",
+                        "http://9a1764d27dd7.ngrok.io/uploadWAV",
                         headers: {
                           "Content-Type": "application/json",
                         },
