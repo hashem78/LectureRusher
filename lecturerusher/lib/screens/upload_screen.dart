@@ -6,7 +6,6 @@ import 'package:lecturerusher/models/rusher_ucheckbox_model.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';
 import 'dart:convert';
-import 'dart:async';
 
 class UploadScreen extends StatelessWidget {
   @override

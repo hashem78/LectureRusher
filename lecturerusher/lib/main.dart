@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lecturerusher/constants.dart';
+import 'package:lecturerusher/screens/transcribe_screen.dart';
 import 'package:lecturerusher/screens/upload_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:lecturerusher/models/recorder_model.dart';
 import 'package:lecturerusher/screens/main_screen.dart';
 import 'package:lecturerusher/models/rusher_ucheckbox_model.dart';
+import 'package:lecturerusher/models/transcribe_model.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -30,6 +32,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<RusherUploadCheckBoxesModel>(
           create: (context) => RusherUploadCheckBoxesModel(),
         ),
+        ChangeNotifierProvider<TranScribeModel>(
+          create: (context) => TranScribeModel(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -37,6 +42,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => MainScreen(),
           '/uploadScreen': (context) => UploadScreen(),
+          '/transcribeScreen': (context) => TransScribeScreen(),
         },
       ),
     );

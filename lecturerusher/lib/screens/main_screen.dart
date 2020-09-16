@@ -18,13 +18,14 @@ class MainScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image(image: AssetImage("images/teck.png")),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     RusherTile(
-                      text: "Upload",
+                      text: "Upload Recording",
                       onTap: () async {
                         await Navigator.of(context).pushNamed("/uploadScreen");
                         FilePicker.platform
@@ -71,11 +72,40 @@ class MainScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RusherTile(
-                    text: "Sound tracks",
-                    onTap: () {},
+                    text: "About the project",
+                    onTap: () {
+                      showAboutDialog(
+                        applicationIcon: Container(
+                          height: 50,
+                          width: 50,
+                          child: Image.asset("images/app_icon.png"),
+                        ),
+                        children: [
+                          Container(
+                            width: 10,
+                            height: 40,
+                            child: Image(
+                              image: AssetImage("images/aws.png"),
+                            ),
+                          ),
+                          Container(
+                            width: 50,
+                            height: 70,
+                            child: Image(
+                              image: AssetImage("images/teck.png"),
+                            ),
+                          ),
+                        ],
+                        context: context,
+                        applicationName: "Lecture Rusher",
+                        applicationVersion: "1.0",
+                        applicationLegalese:
+                            "This project was made by Hashem Alayan for the Amazon Teckathon 2020 event, you can find the author on github at https://github.com/hashem78",
+                      );
+                    },
                     icon: Icon(
-                      Icons.audiotrack,
-                      color: Color(0xFF374257),
+                      MdiIcons.information,
+                      color: Colors.green,
                     ),
                   ),
                   SizedBox(
@@ -83,6 +113,8 @@ class MainScreen extends StatelessWidget {
                   ),
                   RusherTile(
                     text: "Live Transcribe",
+                    onTap: () =>
+                        Navigator.of(context).pushNamed('/transcribeScreen'),
                     icon: Icon(
                       MdiIcons.textToSpeech,
                       color: Colors.blue,
