@@ -64,3 +64,11 @@ Note: I still have to do the following for the recoding functionality:
 # 8:42pm
 
 ###### Big ooooof wasted a bunch of time on getting the app to play a sound with flutter_sound but it is bugged beyond hell so I scraped the idea ehhhh.
+
+----------
+# Day 3
+
+###### Didn't have much time to log today, but it was a beautiful ride. I gave it my best, next time around I am for sure getting meself a team mate!
+###### Hot damn the server took alllllllllllllllllllllllot of time to setup, most tutorials on the internet on how setup flask are as outdated as a my granny. I might set a tutroial myself.
+
+###### Man I wish this covid things ends tommorow. Stay Safe Wear A Mask PEACE!
