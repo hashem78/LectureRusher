@@ -23,7 +23,7 @@ class RecorderModel extends ChangeNotifier {
       if (recorder == null || recorder.isStopped) {
         recorder = await FlutterSoundRecorder().openAudioSession();
         String path =
-            '/sdcard/${recorder.slotNo}-flutter_sound${ext[Codec.pcm16WAV.index]}';
+            '/sdcard/${DateTime.now().millisecondsSinceEpoch}-recording${ext[Codec.pcm16WAV.index]}';
         await recorder.startRecorder(
           toFile: path,
           codec: Codec.pcm16WAV,

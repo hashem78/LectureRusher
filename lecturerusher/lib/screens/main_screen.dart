@@ -7,10 +7,13 @@ import 'package:provider/provider.dart';
 import 'package:lecturerusher/models/recorder_model.dart';
 import 'package:file_picker/file_picker.dart';
 
+GlobalKey<ScaffoldState> scaffoldState2 = GlobalKey<ScaffoldState>();
+
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldState2,
       appBar: krusherAppBar,
       backgroundColor: kbackgroundColor,
       body: Column(
@@ -85,15 +88,27 @@ class MainScreen extends StatelessWidget {
                     text: newW.recorderTitle,
                     onTap: () {
                       newW.changeState(0);
-                      print("started");
+                      scaffoldState2.currentState.showSnackBar(
+                        SnackBar(
+                          content: Text('Recording started'),
+                        ),
+                      );
                     },
                     onDobuleTap: () {
                       newW.changeState(1);
-                      print("paused");
+                      scaffoldState2.currentState.showSnackBar(
+                        SnackBar(
+                          content: Text('Recording paused'),
+                        ),
+                      );
                     },
                     onLongPress: () {
                       newW.changeState(2);
-                      print("stopped");
+                      scaffoldState2.currentState.showSnackBar(
+                        SnackBar(
+                          content: Text('Recording stopped'),
+                        ),
+                      );
                     },
                     icon: Icon(
                       Icons.circle,
