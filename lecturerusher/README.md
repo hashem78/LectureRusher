@@ -1,16 +1,33 @@
+![Teck](/images/teck.png)
+
 # lecturerusher
 
-A new Flutter project.
+The Lecture Rusher flutter app is the frontend to the functionalities the idea rests upon.
 
-## Getting Started
+![App Logo](/images/logo.png)
 
-This project is a starting point for a Flutter application.
+# The idea
 
-A few resources to get you started if this is your first Flutter project:
+###### During those times of turmoil, everything takes more time, whether it be online lectures, meetings or content. What if there was a way to reduce audio to it's bare nesccities whereby only the useful parts are kept and the useless discarded into oblivion? Well here it is. Lecture Rusher utilises a powerful machine learning and artifical intelligence model that KNOWS the best times to cut an audio and the best ways to remove filler and silences, based on great reasearch done by sientists across different engineering fields.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![AI](/images/ai.jpeg)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Technologies used
+
+######  1. Flutter, the application is built on top of flutter, googles' cross platform app development framework
+
+######  2. AWS Lambda, lambda is used by the live transcribe functionality to be triggered whenever a requests a text analysis.
+
+######  3. AWS Comprehend, provides sentiment, syantax and grammar analysis.
+
+######  4. AWS LightSail, provides the backend for executing the scripts required to run the models on the audio files uploaded
+
+
+# Screen Shots
+
+![s1](/images/s1.png)
+![s2](/images/s2.png)
+![s3](/images/s3.png)
+![s4](/images/s4.png)
+![s5](/images/s5.png)
+![s6](/images/s6.png)
