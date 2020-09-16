@@ -72,3 +72,24 @@ Note: I still have to do the following for the recoding functionality:
 ###### Hot damn the server took alllllllllllllllllllllllot of time to setup, most tutorials on the internet on how setup flask are as outdated as a my granny. I might set a tutroial myself.
 
 ###### Man I wish this covid things ends tommorow. Stay Safe Wear A Mask PEACE!
+----------
+
+# Work flow of the lighsail server.
+
+######  1. File gets picked by user.
+######  2. File gets encoded to base64 string.
+######  3. File is packaged as json and sent as an http post request.
+######  4. The script gets triggered and the model is run producing aa .TextGrid file. the .TextGrid file contains the data on how to cut the audio, so a bunch of commads are issued to extract the data, format it and send it back as a json respone file to the user.
+
+---------
+# Work flow of the live transcribe/text analysis functionality
+
+###### 1. User presses the record button.
+###### 2. The devices microphones are polled for input, and the framework takes care of the rest.
+###### 3. When the user hits the text analysis button the following takes place:
+######      a. The request is sent to AWS Api gateway
+######      b. The request gets forwarded to AWS lambda
+######      c. Lambda calls amazon boto and then AWS Comperehend is called upon for analysis
+######      d. The data is formatted and sent back a json response.
+
+
