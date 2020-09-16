@@ -92,4 +92,10 @@ Note: I still have to do the following for the recoding functionality:
 ######      c. Lambda calls amazon boto and then AWS Comperehend is called upon for analysis
 ######      d. The data is formatted and sent back a json response.
 
+---------
 
+# How to build the flutter app(requires flutter to be installed on the system).
+######  1. Clone the repo
+######  2. cd lectureruhser
+######  3. flutter clean
+######  4. flutter build apk --split-per-abi
