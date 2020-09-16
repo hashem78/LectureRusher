@@ -55,7 +55,8 @@ class TransScribeScreen extends StatelessWidget {
                 Icons.save,
               ),
               onPressed: () {
-                File f = File("/sdcard/lecture.txt");
+                File f = File(
+                    "/sdcard/${DateTime.now().microsecondsSinceEpoch}-lecture.txt");
                 scaffoldState.currentState.showSnackBar(
                   SnackBar(
                     content: Text("Saved contents to lecture.txt in storage"),
