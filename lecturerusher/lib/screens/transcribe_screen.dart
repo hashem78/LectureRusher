@@ -22,6 +22,7 @@ class TransScribeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FloatingActionButton(
+              tooltip: "Start/Stop/Intialize recording",
               onPressed: () async {
                 if (!w.isListening) {
                   bool available = await w.speech.initialize(
@@ -49,6 +50,7 @@ class TransScribeScreen extends StatelessWidget {
             ),
             FloatingActionButton(
               heroTag: "1",
+              tooltip: "Save transcription to local storage",
               child: Icon(
                 Icons.save,
               ),
@@ -63,6 +65,7 @@ class TransScribeScreen extends StatelessWidget {
               },
             ),
             FloatingActionButton(
+              tooltip: "Analyze text for various features",
               heroTag: "2",
               onPressed: () async {
                 String url =
