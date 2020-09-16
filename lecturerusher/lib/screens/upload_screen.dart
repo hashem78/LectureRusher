@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:lecturerusher/models/rusher_ucheckbox_model.dart';
 import 'package:provider/provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
 import 'dart:convert';
 
@@ -55,6 +56,10 @@ class UploadScreen extends StatelessWidget {
                       var decodedJson = json.decode(response.body);
                       var decodedFile = base64Decode(decodedJson['file']);
                       w.triggerIsDecoded();
+                      var status = await Permission.storage.status;
+                      if (!status.isGranted) {
+                        await Permission.storage.request();
+                      }
                       File f = File("/sdcard/recivied.wav");
                       await f.writeAsBytes(decodedFile);
                       w.triggerIsSaved();
