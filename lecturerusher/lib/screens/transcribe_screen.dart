@@ -71,6 +71,20 @@ class TransScribeScreen extends StatelessWidget {
                 String url =
                     'https://z65meaof1g.execute-api.us-east-1.amazonaws.com/default/getData?text=${w.text}';
                 var response = await http.get(url);
+                if (response.statusCode != 200) {
+                  scaffoldState.currentState.showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        "Unfortuanetly an error occured, please check your internet connection",
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
+                  return;
+                }
                 var jsonResponse = jsonDecode(response.body);
 
                 var entities = jsonResponse['entities'];
@@ -81,6 +95,17 @@ class TransScribeScreen extends StatelessWidget {
                 finalText = finalText.replaceAll(RegExp(r'\['), '');
                 finalText = finalText.replaceAll(RegExp(r'\]'), '');
                 w.updateAnalysisText(finalText);
+                scaffoldState.currentState.showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      "Text analysis complete",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                );
               },
               child: Text(
                 'Analyze Text',
